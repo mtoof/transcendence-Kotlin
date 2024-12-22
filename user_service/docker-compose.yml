@@ -1,0 +1,26 @@
+networks:
+  transcendence:
+    driver: bridge
+
+services:
+  db:
+    image: postgres:17.2-alpine
+    hostname: db
+    restart: always
+    environment:
+      POSTGRES_DB: testDb
+      POSTGRES_USER: someUser
+      POSTGRES_PASSWORD: somePassword
+    networks:
+      - transcendence
+
+  user_service:
+    image: "user_service"
+    hostname: user_service
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - transcendence
+    depends_on:
+      - db
