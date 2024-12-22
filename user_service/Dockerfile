@@ -2,7 +2,7 @@ FROM openjdk:21-jdk-slim
 
 WORKDIR /app
 
-COPY build/libs/. /app/.
+COPY user_service/build/libs/. /app/.
 
 RUN chmod +x /app/user_service-0.0.1-SNAPSHOT.jar
 
