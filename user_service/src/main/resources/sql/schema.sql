@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS userprofile (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    avatar BYTEA
+    avatar VARCHAR(255) DEFAULT '/media/avatars/default.jpg'
 );
